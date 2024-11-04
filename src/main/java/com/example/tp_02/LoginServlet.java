@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
             response.getWriter().println("<h1>Bienvenue, " + username + "!</h1>");
             response.getWriter().println("<form action=\"RedirectServlet\" method=\"GET\">");
             response.getWriter().println("Type d' action : <input type=\"text\" name=\"action\" value=\"PageRedirect\"><br><br>");
-            response.getWriter().println("Texte : <input type=\"text\" name=\"texte\" required><br><br>");
+            response.getWriter().println("Texte ou URL : <input type=\"text\" name=\"page\" required><br><br>");
             response.getWriter().println("<input type=\"submit\" value=\"Soumettre\">");
             response.getWriter().println("</form>");
             response.getWriter().println("</body></html>");

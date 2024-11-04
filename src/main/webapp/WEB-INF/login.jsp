@@ -19,7 +19,7 @@
         <label for="username">nom d' utilisateur :</label>
         <input type="text" id="username" name="username" required>
         <br><br>
-        <label for="password">Mot de Pase :</label>
+        <label for="password">Mot de Passe :</label>
         <input type="text" id="password" name="password" required>
         <br><br>
         <input type="submit" value="Valider">
