@@ -13,7 +13,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/login.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
         dispatcher.forward(request, response);
 
     }
@@ -23,20 +23,15 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+
         if (username.equals("J2EE") && password.equals("J2EE")){
             System.out.println("Login OK");
-            response.setContentType("text/html");
-            response.getWriter().println("<html><body>");
-            response.getWriter().println("<h1>Bienvenue, " + username + "!</h1>");
-            response.getWriter().println("<form action=\"RedirectServlet\" method=\"GET\">");
-            response.getWriter().println("Type d' action : <input type=\"text\" name=\"action\" value=\"PageRedirect\"><br><br>");
-            response.getWriter().println("Texte : <input type=\"text\" name=\"texte\" required><br><br>");
-            response.getWriter().println("<input type=\"submit\" value=\"Soumettre\">");
-            response.getWriter().println("</form>");
-            response.getWriter().println("</body></html>");
+            request.getRequestDispatcher("/RedirectServlet").forward(request, response);
+            request.getRequestDispatcher("/RedirectServlet").include(request, response);
+
         }else {
-            request.setAttribute("errorMessage", "Le nom d' utilisateur ou mot de passe saisi est incorrect.");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/login.jsp");
+            request.setAttribute("errorMessage", "Identification faillure");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
             dispatcher.forward(request, response);
         }
 
